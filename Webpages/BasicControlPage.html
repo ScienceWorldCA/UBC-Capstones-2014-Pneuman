@@ -1,12 +1,23 @@
+<!-- AWP_In_Variable Name="Forwards" -->
+<!-- AWP_In_Variable Name="Backwards" -->
+<!-- AWP_In_Variable Name="Stop" -->
+
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="PneumanLayout.css">
+		<script src="BasicControlJavascript.js"></script>
 	</head>
 	<body>
 		<div id="control_div">
-			<button id="button_backwards" class="button_control">Back</button>
-			<button id="button_stop" class="button_control">Stop</button>
-			<button id="button_forwards" class="button_control">Go</button>
+			<button id="button_backwards" class="button_control" onclick="submit_control(1);">Back</button>
+			<button id="button_stop" class="button_control" onclick="submit_control(2);">Stop</button>
+			<button id="button_forwards" class="button_control" onclick="submit_control(0);">Go</button>
 		</div>
+		<form id="control_form" method="post" action="">
+			<input type="hidden" name="Forwards">
+			<input type="hidden" name="Backwards">
+			<input type="hidden" name="Stop">
+		</form>
 	</body>
 </html>
