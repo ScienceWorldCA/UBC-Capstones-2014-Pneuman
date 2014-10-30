@@ -62,7 +62,3 @@ function pressure_adjustment_test_driver()
 	var pressure4 = Math.random() * 100;
 	refresh_pressure_displays(pressure1, pressure2, pressure3, pressure4);
 }
-
-function set_pressure_color_gradient(){
-	
-}
