@@ -1,4 +1,4 @@
-var MAX_PRESSURE = 100;
+var MAX_PRESSURE = 50;
 
 setTimeout(function(){
    window.parent.document.getElementById("variable_refresh_page").src = window.parent.document.getElementById("variable_refresh_page").src;
@@ -54,11 +54,10 @@ function refresh_pressure_displays(pressure1, pressure2, pressure3, pressure4){
 	set_peressure_labels(pressure1, pressure2, pressure3, pressure4);
 }
 
-function pressure_adjustment_test_driver()
-{
-	var pressure1 = Math.random() * 100;
-	var pressure2 = Math.random() * 100;
-	var pressure3 = Math.random() * 100;
-	var pressure4 = Math.random() * 100;
+function pressure_adjustment_test_driver(){
+	var pressure1 = Math.random() * 50;
+	var pressure2 = Math.random() * 50;
+	var pressure3 = Math.random() * 50;
+	var pressure4 = Math.random() * 50;
 	refresh_pressure_displays(pressure1, pressure2, pressure3, pressure4);
 }
