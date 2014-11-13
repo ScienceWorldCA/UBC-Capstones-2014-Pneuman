@@ -2,7 +2,7 @@ var MAX_PRESSURE = 50;
 
 setTimeout(function(){
    window.parent.document.getElementById("variable_refresh_page").src = window.parent.document.getElementById("variable_refresh_page").src;
-}, 2000);
+}, 20);
 
 function get_pressure_percentage(pressure){
 	var pressure_percentage = pressure / MAX_PRESSURE * 100;
