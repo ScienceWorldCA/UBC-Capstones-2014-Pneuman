@@ -23,6 +23,38 @@ body
 	text-align: center;
 }
 
+#blackout_submit_button
+{
+	width: 28%;
+	height: 40px;
+	margin: 2%;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	font-size: 20px;
+	border: 5px solid black;
+	overflow: hidden;
+}
+
+.date_input_div
+{
+	width: 100%;
+	text-align: center;
+	margin: 20px;
+	height: 50px;
+	font-size: 20px;
+}
+
+.date_input_div input
+{
+	margin: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size: 20px;
+}
+
 .hidden_iframe
 {
 	height: 0px;

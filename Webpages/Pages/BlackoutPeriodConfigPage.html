@@ -1,0 +1,83 @@
+<!-- AWP_In_Variable Name='"from_date_1"' -->
+<!-- AWP_In_Variable Name='"to_date_1"' -->
+<!-- AWP_In_Variable Name='"enabled_1"' -->
+<!-- AWP_In_Variable Name='"from_date_2"' -->
+<!-- AWP_In_Variable Name='"to_date_2"' -->
+<!-- AWP_In_Variable Name='"enabled_2"' -->
+<!-- AWP_In_Variable Name='"from_date_3"' -->
+<!-- AWP_In_Variable Name='"to_date_3"' -->
+<!-- AWP_In_Variable Name='"enabled_3"' -->
+<!-- AWP_In_Variable Name='"from_date_4"' -->
+<!-- AWP_In_Variable Name='"to_date_4"' -->
+<!-- AWP_In_Variable Name='"enabled_4"' -->
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="..\Layout\PneumanLayout.css">
+		<link rel="stylesheet" type="text/css" href="..\Scripts\datetimepicker\jquery.datetimepicker.css"/>
+		<script src="..\Scripts\BasicControlJavascript.js"></script>
+		<script src="..\Scripts\datetimepicker\jquery.js"></script>
+		<script src="..\Scripts\datetimepicker\jquery.datetimepicker.js"></script>
+		<style type="text/css">.custom-date-style { background-color: red !important; }</style>
+	</head>
+	<body>
+		<div id="title_div">
+			Pneuman Blackout Configuration
+		</div>
+		<div class="date_input_div">
+			<form id="custom_date_1" method="post">
+				Hourly Blackout Period
+				<input id="blackout_from" type="number" name='"blackout_from"'>
+				<input id="blackout_to" type="number" name='"blackout_to"'>
+				<input id="blackout_enabled" type="checkbox" name='"blackout_enabled"'>Enabled</input>
+			</form>
+		</div>
+		<div class="date_input_div">
+			<form id="custom_date_1" method="post">
+				Custom Time 1
+				<input id="from_date_1" type="text" name='"from_date_1"'>
+				<input id="to_date_1" type="text" name='"to_date_1"'>
+				<input id="enabled_1" type="checkbox" name='"enabled_1"'>Enabled</input>
+			</form>
+		</div>
+		<div class="date_input_div">
+			<form id="custom_date_2" method="post">
+				Custom Time 2
+				<input id="from_date_2" type="text" name='"from_date_2"'>
+				<input id="to_date_2" type="text" name='"to_date_2"'>
+				<input id="enabled_2" type="checkbox" name='"enabled_2"'>Enabled</input>
+			</form>
+		</div>
+		<div class="date_input_div">
+			<form id="custom_date_3" method="post">
+				Custom Time 3
+				<input id="from_date_3" type="text" name='"from_date_3"'>
+				<input id="to_date_3" type="text" name='"to_date_3"'>
+				<input id="enabled_3" type="checkbox" name='"enabled_3"'>Enabled</input>
+			</form>
+		</div>
+		<div class="date_input_div">
+			<form id="custom_date_4" method="post">
+				Custom Time 4
+				<input id="from_date_4" type="text" name='"from_date_4"'>
+				<input id="to_date_4" type="text" name='"to_date_4"'>
+				<input id="enabled_4" type="checkbox" name='"enabled_4"'>Enabled</input>
+			</form>
+		</div>
+		<div class="date_input_div">
+			<button id="blackout_submit_button">Submit Changes</button>
+		</div>
+	</body>
+</html>
+
+<script>
+$('#from_date_1').datetimepicker();
+$('#to_date_1').datetimepicker();
+$('#from_date_2').datetimepicker();
+$('#to_date_2').datetimepicker();
+$('#from_date_3').datetimepicker();
+$('#to_date_3').datetimepicker();
+$('#from_date_4').datetimepicker();
+$('#to_date_4').datetimepicker();
+</script>
