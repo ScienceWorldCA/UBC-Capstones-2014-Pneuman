@@ -2,7 +2,7 @@ var MAX_PRESSURE = 50;
 
 setTimeout(function(){
    window.parent.document.getElementById("variable_refresh_page").src = window.parent.document.getElementById("variable_refresh_page").src;
-}, 20);
+}, 200);
 
 function get_pressure_percentage(pressure){
 	var pressure_percentage = pressure / MAX_PRESSURE * 100;
@@ -60,4 +60,11 @@ function pressure_adjustment_test_driver(){
 	var pressure3 = Math.random() * 50;
 	var pressure4 = Math.random() * 50;
 	refresh_pressure_displays(pressure1, pressure2, pressure3, pressure4);
+}
+
+function rotate(degrees){
+	window.parent.document.getElementById("rotary_display").innerHTML = "Position: " + degrees + "&ordm;";
+	window.parent.document.getElementById("rotary_div").style.webkitTransform = "rotate(" + degrees + "deg)";
+	window.parent.document.getElementById("rotary_div").style.transform = "rotate(" + degrees + "deg)";
+	window.parent.document.getElementById("rotary_div").style.msTransform = "rotate(" + degrees + "deg)";
 }
