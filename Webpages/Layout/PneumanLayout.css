@@ -100,10 +100,10 @@ body
 	
 	background-color: green;
 
-	-moz-transition: all 2s ease;
-    -webkit-transition: all 2s ease;
-    -o-transition: all 2s ease;
-    transition: all 2s ease;
+	-moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
 	
 	margin: 0px;
 	-webkit-border-radius: 15px;
