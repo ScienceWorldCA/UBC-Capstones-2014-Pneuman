@@ -1,7 +1,3 @@
-<!-- AWP_In_Variable Name='"Forwards"' -->
-<!-- AWP_In_Variable Name='"Backwards"' -->
-<!-- AWP_In_Variable Name='"Stop"' -->
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
@@ -14,10 +10,6 @@
 			<button id="button_stop" class="button_control" onclick="submit_control(2);">Stop</button>
 			<button id="button_forwards" class="button_control" onclick="submit_control(0);">Go</button>
 		</div>
-		<form id="control_form" method="post">
-			<input id="control_forwards" type="hidden" name='"Forwards"'>
-			<input id="control_backwards" type="hidden" name='"Backwards"'>
-			<input id="control_stop" type="hidden" name='"Stop"'>
-		</form>
+		<iframe src="HiddenControlPage.html" id="hidden_control_frame" class="hidden_iframe" display="none"></iframe>
 	</body>
 </html>
