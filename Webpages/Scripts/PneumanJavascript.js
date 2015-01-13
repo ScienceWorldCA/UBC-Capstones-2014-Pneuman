@@ -42,10 +42,10 @@ function adjust_pressure_bar_color(pressure1, pressure2, pressure3, pressure4){
 }
 
 function set_peressure_labels(pressure1, pressure2, pressure3, pressure4){
-	window.parent.document.getElementById("piston_label_1").innerHTML = Math.floor(pressure1) + " psi"
-	window.parent.document.getElementById("piston_label_2").innerHTML = Math.floor(pressure2) + " psi"
-	window.parent.document.getElementById("piston_label_3").innerHTML = Math.floor(pressure3) + " psi"
-	window.parent.document.getElementById("piston_label_4").innerHTML = Math.floor(pressure4) + " psi"
+	window.parent.document.getElementById("piston_label_1").innerHTML = Math.floor(pressure1) + " psi";
+	window.parent.document.getElementById("piston_label_2").innerHTML = Math.floor(pressure2) + " psi";
+	window.parent.document.getElementById("piston_label_3").innerHTML = Math.floor(pressure3) + " psi";
+	window.parent.document.getElementById("piston_label_4").innerHTML = Math.floor(pressure4) + " psi";
 }
 
 function refresh_pressure_displays(pressure1, pressure2, pressure3, pressure4){
