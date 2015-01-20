@@ -1,0 +1,113 @@
+#background_div{
+    background: url(../Images/Slide%20Body%20Background.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#intro_div{
+    background: url(../Images/Slide%20Title.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#intro_control_div{
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    bottom: 10%;
+}
+
+#back_control_div{
+    position: absolute;
+    left: 15%;
+    top: 8%;
+}
+
+#control_button_div{
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    width: 20%;
+    bottom: 20%;
+}
+
+#pneuman_control_image{
+    background: url(../Images/pneuman_legs.PNG) no-repeat;
+    background-size: 100% 100%;
+}
+
+.intro_button{
+    width: 30%;
+    height: 100%;
+    margin: 1%;
+}
+
+.control_button{
+    width: 100%;
+    height: 30%;
+    margin: 3%;
+}
+
+.control_info_div{
+    width: 40%;
+    position: absolute;
+    right: 15%;
+    top: 20%;
+    bottom: 20%;
+}
+
+.full_screen_div{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.no_padding_margin{
+    padding: 0;
+    margin: 0;
+}
+
+.button{
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #c7332c;
+    font-size: 20px;
+    background: #fecb23;
+    padding: 10px 20px 10px 20px;
+    border: solid #c7332c 6px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #c9c9cc;
+    text-decoration: none;
+}
+
+.text_area{
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #c7332c;
+    font-size: 20px;
+    background: #c9c9cc;
+    padding: 10px 20px 10px 20px;
+    border: solid #c7332c 6px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.info_div{
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    bottom: 10%;
+    overflow: hidden;
+}
+
+.initially_hidden{
+    display: none;
+}
