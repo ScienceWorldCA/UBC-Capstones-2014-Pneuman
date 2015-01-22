@@ -10,28 +10,57 @@
 
 #intro_control_div{
     position: absolute;
-    left: 20%;
-    width: 60%;
+    left: 10%;
+    width: 80%;
     bottom: 10%;
 }
 
 #back_control_div{
     position: absolute;
-    left: 15%;
-    top: 8%;
+    left: 2%;
+    top: 2%;
 }
 
 #control_button_div{
     position: absolute;
-    left: 15%;
+    left: 7%;
     top: 20%;
-    width: 20%;
-    bottom: 20%;
+    width: 40%;
+    bottom: 10%;
 }
 
 #pneuman_control_image{
     background: url(../Images/pneuman_legs.PNG) no-repeat;
     background-size: 100% 100%;
+}
+
+.pneuman_control_state_area{
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #c7332c;
+    font-size: 20px;
+    background: #0ed01b;
+    border: solid #c7332c 6px;
+    text-decoration: none;
+    margin-bottom: 3%;
+}
+
+#pneuman_control_state{
+    width: 80%;
+    position: absolute;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+#control_info_wrapper{
+    width: 40%;
+    position: absolute;
+    right: 7%;
+    top: 20%;
+    bottom: 10%;
 }
 
 .intro_button{
@@ -43,15 +72,24 @@
 .control_button{
     width: 100%;
     height: 30%;
-    margin: 3%;
+    margin-bottom: 3%;
 }
 
 .control_info_div{
-    width: 40%;
+    width: 100%;
     position: absolute;
-    right: 15%;
-    top: 20%;
-    bottom: 20%;
+    top: 0%;
+    height: 70%;
+
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #c7332c;
+    font-size: 20px;
+    background: #fecb23;
+    border: solid #c7332c 6px;
+    text-decoration: none;
 }
 
 .full_screen_div{
