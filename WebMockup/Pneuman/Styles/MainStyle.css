@@ -1,10 +1,10 @@
 #background_div{
-    background: url(../Images/Slide%20Body%20Background.png) no-repeat;
+    background: url(../Images/Slide%20Body%20Background.jpg) no-repeat;
     background-size: 100% 100%;
 }
 
 #intro_div{
-    background: url(../Images/Slide%20Title.png) no-repeat;
+    background: url(../Images/Slide%20Title.jpg) no-repeat;
     background-size: 100% 100%;
 }
 
@@ -30,7 +30,7 @@
 }
 
 #pneuman_control_image{
-    background: url(../Images/pneuman_legs.PNG) no-repeat;
+    background: url(../Images/pneuman_legs.jpg) no-repeat;
     background-size: 100% 100%;
 }
 

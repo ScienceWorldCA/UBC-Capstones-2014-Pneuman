@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="./Styles/MainStyle.css">
     <script src=".\Scripts\jquery-1.11.2.min.js"></script>
     <script src=".\Scripts\MainScript.js"></script>
+	<script src=".\Scripts\BasicControlJavascript.js"></script>
 </head>
 <body class="no_padding_margin">
     <div id="background_div" class="no_padding_margin full_screen_div">
@@ -43,11 +44,12 @@
         </div>
         <div id="control_pneuman_div" class="no_padding_margin initially_hidden">
             <div id="control_button_div" class="no_padding_margin">
-                <button class="control_button button" onclick="alert('Forwards!')">Forwards</button>
-                <button class="control_button button" onclick="alert('Stop!')">Stop</button>
-                <button class="control_button button" onclick="alert('Backwards!')">Backwards</button>
+                <button id="button_forwards" class="control_button button" onclick="submit_control(0);">Forwards</button>
+                <button id="button_stop" class="control_button button" onclick="submit_control(2);">Stop</button>
+                <button id="button_backwards" class="control_button button" onclick="submit_control(1);">Backwards</button>
             </div>
-            <div id="control_info_wrapper" class="no_padding_margin">
+            <iframe src="HiddenControlPage.html" id="hidden_control_frame" class="hidden_iframe" display="none"></iframe>
+			<div id="control_info_wrapper" class="no_padding_margin">
                 <div id="pneuman_control_image" class="control_info_div"></div>
                 <div id="pneuman_control_state" class="pneuman_control_state_area"></div>
             </div>
