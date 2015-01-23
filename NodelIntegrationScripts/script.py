@@ -18,11 +18,11 @@ def local_action_Start(arg):
     try:
         blackout_controller.start_blackout()
     except Exception, e:
-        local_event_Error.emit(e.message)
+        local_event_Error.emit(e)
 
 def local_action_Stop(arg):
     '''{"title":"Stop","desc":"Starts Pneumans Blackout Period.", "group":"Blackout"}'''
     try:
         blackout_controller.stop_blackout()
     except Exception, e:
-        local_event_Error.emit(e.message)
+        local_event_Error.emit(e)

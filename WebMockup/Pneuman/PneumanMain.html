@@ -48,7 +48,6 @@
                 <button id="button_stop" class="control_button button" onclick="submit_control(2);">Stop</button>
                 <button id="button_backwards" class="control_button button" onclick="submit_control(1);">Backwards</button>
             </div>
-            <iframe src="HiddenControlPage.html" id="hidden_control_frame" class="hidden_iframe" display="none"></iframe>
 			<div id="control_info_wrapper" class="no_padding_margin">
                 <div id="pneuman_control_image" class="control_info_div"></div>
                 <div id="pneuman_control_state" class="pneuman_control_state_area"></div>
@@ -62,5 +61,7 @@
             <button class="intro_button button" onclick="hide_element('intro_div');  show_element('control_pneuman_div');">Control Pneuman!</button>
         </div>
     </div>
+    <iframe src="PneumanStateRefreshPage.html" id="pneuman_state_refresh" class="hidden_iframe" display="none"></iframe>
+    <iframe src="HiddenControlPage.html" id="hidden_control_frame" class="hidden_iframe" display="none"></iframe>
 </body>
 </html>

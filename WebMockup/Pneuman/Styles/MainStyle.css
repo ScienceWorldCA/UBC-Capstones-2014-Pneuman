@@ -53,6 +53,7 @@
     height: 15%;
     bottom: 0;
     left: 0;
+    text-align: center;
 }
 
 #control_info_wrapper{
@@ -148,4 +149,13 @@
 
 .initially_hidden{
     display: none;
+}
+
+.hidden_iframe
+{
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
 }

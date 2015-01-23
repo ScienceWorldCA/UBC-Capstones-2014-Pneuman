@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd477873-fcc1-4519-bda3-dace962c7af3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Styles/MainStyle.css" afterPath="$PROJECT_DIR$/Styles/MainStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodelIntegrationScripts/PneumanBlackoutController.py" afterPath="$PROJECT_DIR$/../../NodelIntegrationScripts/PneumanBlackoutController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PneumanMain.html" afterPath="$PROJECT_DIR$/PneumanMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodelIntegrationScripts/script.py" afterPath="$PROJECT_DIR$/../../NodelIntegrationScripts/script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PneumanStateRefreshPage.html" afterPath="$PROJECT_DIR$/PneumanStateRefreshPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pneuman.iws" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="PneumanMain.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PneumanMain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.461538" vertical-offset="569" max-vertical-offset="1173">
-              <caret line="51" column="89" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
+            <state vertical-scroll-proportion="-6.230769" vertical-offset="722" max-vertical-offset="1224">
+              <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -44,8 +41,8 @@
       <file leaf-file-name="MainStyle.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48341233" vertical-offset="0" max-vertical-offset="2652">
-              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.76540285" vertical-offset="612" max-vertical-offset="2822">
+              <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -56,6 +53,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
               <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateDisplayJavascript.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/StateDisplayJavascript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PneumanStateRefreshPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PneumanStateRefreshPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="238">
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -73,6 +90,8 @@
         <option value="$PROJECT_DIR$/MainScript.js" />
         <option value="$PROJECT_DIR$/Scripts/MainScript.js" />
         <option value="$PROJECT_DIR$/PneumanMain.html" />
+        <option value="$PROJECT_DIR$/Scripts/StateDisplayJavascript.js" />
+        <option value="$PROJECT_DIR$/PneumanStateRefreshPage.html" />
         <option value="$PROJECT_DIR$/Styles/MainStyle.css" />
       </list>
     </option>
@@ -343,11 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Slide Title.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
@@ -372,11 +386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Slide Title.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1377">
@@ -393,15 +402,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Slide Title.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/jquery-1.11.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09026549" vertical-offset="0" max-vertical-offset="565">
           <caret line="3" column="7117" selection-start-line="3" selection-start-column="7117" selection-end-line="3" selection-end-column="7117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PneumanMain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.230769" vertical-offset="722" max-vertical-offset="1224">
+          <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PneumanStateRefreshPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="238">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -413,18 +433,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PneumanMain.html">
+    <entry file="file://$PROJECT_DIR$/Scripts/StateDisplayJavascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.461538" vertical-offset="569" max-vertical-offset="1173">
-          <caret line="51" column="89" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48341233" vertical-offset="0" max-vertical-offset="2652">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.76540285" vertical-offset="612" max-vertical-offset="2822">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
           <folding />
         </state>
       </provider>
