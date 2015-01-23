@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd477873-fcc1-4519-bda3-dace962c7af3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Styles/MainStyle.css" afterPath="$PROJECT_DIR$/Styles/MainStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodelIntegrationScripts/PneumanBlackoutController.py" afterPath="$PROJECT_DIR$/../../NodelIntegrationScripts/PneumanBlackoutController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PneumanMain.html" afterPath="$PROJECT_DIR$/PneumanMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodelIntegrationScripts/script.py" afterPath="$PROJECT_DIR$/../../NodelIntegrationScripts/script.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PneumanStateRefreshPage.html" afterPath="$PROJECT_DIR$/PneumanStateRefreshPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pneuman.iws" />
@@ -40,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainStyle.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainStyle.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2669">
-              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.76540285" vertical-offset="612" max-vertical-offset="2822">
+              <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -70,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PneumanStateRefreshPage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PneumanStateRefreshPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PneumanStateRefreshPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12878788" vertical-offset="0" max-vertical-offset="396">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="238">
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -93,8 +91,8 @@
         <option value="$PROJECT_DIR$/Scripts/MainScript.js" />
         <option value="$PROJECT_DIR$/PneumanMain.html" />
         <option value="$PROJECT_DIR$/Scripts/StateDisplayJavascript.js" />
-        <option value="$PROJECT_DIR$/Styles/MainStyle.css" />
         <option value="$PROJECT_DIR$/PneumanStateRefreshPage.html" />
+        <option value="$PROJECT_DIR$/Styles/MainStyle.css" />
       </list>
     </option>
   </component>
@@ -419,10 +417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
+    <entry file="file://$PROJECT_DIR$/PneumanStateRefreshPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2669">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="238">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -443,10 +441,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PneumanStateRefreshPage.html">
+    <entry file="file://$PROJECT_DIR$/Styles/MainStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12878788" vertical-offset="0" max-vertical-offset="396">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.76540285" vertical-offset="612" max-vertical-offset="2822">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
           <folding />
         </state>
       </provider>
