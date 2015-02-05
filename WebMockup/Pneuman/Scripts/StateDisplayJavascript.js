@@ -1,6 +1,6 @@
 setTimeout(function(){
     window.parent.document.getElementById("pneuman_state_refresh").src = window.parent.document.getElementById("pneuman_state_refresh").src;
-}, 200);
+}, 2000);
 
 function updateState(state){
     var state_name = "Blackout";
