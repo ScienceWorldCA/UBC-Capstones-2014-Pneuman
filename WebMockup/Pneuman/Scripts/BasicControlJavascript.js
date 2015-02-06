@@ -4,6 +4,7 @@ function submit_control(control_code){
 	window.frames['hidden_control_frame'].contentDocument.getElementById("control_forwards").value = controls[0];
 	window.frames['hidden_control_frame'].contentDocument.getElementById("control_backwards").value = controls[1];
 	window.frames['hidden_control_frame'].contentDocument.getElementById("control_stop").value = controls[2];
+	window.frames['hidden_control_frame'].contentDocument.getElementById("control_manual").value = 1;
 	window.frames['hidden_control_frame'].contentDocument.getElementById("control_form").submit();
 }
 
