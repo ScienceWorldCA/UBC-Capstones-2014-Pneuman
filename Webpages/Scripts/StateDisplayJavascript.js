@@ -1,6 +1,6 @@
 setTimeout(function(){
     window.parent.document.getElementById("pneuman_state_refresh").src = window.parent.document.getElementById("pneuman_state_refresh").src;
-}, 200);
+}, 100);
 
 function updateState(state){
     var state_name = "Blackout";
@@ -25,6 +25,6 @@ function updateState(state){
             break;
     }
 
-    window.parent.document.getElementById("pneuman_state_title").innerHTML = state_name;
-    window.parent.document.getElementById("pneuman_state_display").style.backgroundColor = state_color;
+    window.parent.document.getElementById("pneuman_control_state").innerHTML = state_name;
+    window.parent.document.getElementById("pneuman_control_state").style.backgroundColor = state_color;
 }
