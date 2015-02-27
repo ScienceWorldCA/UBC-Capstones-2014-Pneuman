@@ -9,12 +9,9 @@ import S71200URLCommunicator.Interfaces.URLConnectionFactory;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 
-/**
- * Created by macke_000 on 2/26/2015.
- */
 public class PneumanBlackoutCommunicator{
 
-    private static String PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE = "HTTP://%1$s/awp/Pneuman%20Control%20Panel/BlackoutPage.html";
+    private static String PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE = "HTTPS://%1$s/awp/Pneuman%20Control%20Panel/BlackoutPage.html";
 
     private S71200URLCommunicator _plcCommunicator;
     private URLConnectionFactory _connectionFactory;

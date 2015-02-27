@@ -2,7 +2,6 @@ package S71200URLCommunicator.Communicators;
 
 import S71200URLCommunicator.Enums.S71200HttpsFields;
 import S71200URLCommunicator.Factories.CookieManagerFactory;
-import S71200URLCommunicator.Factories.HttpsConnectionFactory;
 import S71200URLCommunicator.Interfaces.URLConnectionFactory;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -12,9 +11,6 @@ import java.net.HttpCookie;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by macke_000 on 2/27/2015.
- */
 public abstract class S71200URLCommunicator {
 
     private static String PLC_AUTHENTICATION_COOKIE_NAME = "siemens_ad_session";

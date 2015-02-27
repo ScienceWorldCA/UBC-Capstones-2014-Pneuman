@@ -10,10 +10,7 @@ import org.junit.Test;
 import javax.net.ssl.HttpsURLConnection;
 
 import java.io.IOException;
-import java.net.CookieManager;
-import java.net.CookieStore;
-import java.net.HttpCookie;
-import java.net.URL;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +27,6 @@ public class S71200HTTPSCommunicatorTests {
     private static String TEST_IP = "192.168.0.1";
 
     private HttpCookie _correctAuthenticationCookie;
-    private HttpCookie _incorrectAuthenticationCookie;
 
     private HttpsURLConnection _mockLoginConnection;
     private HttpsURLConnection _mockLogoutConnection;
@@ -51,7 +47,6 @@ public class S71200HTTPSCommunicatorTests {
         when(_mockConnectionFactory.createConnection(any(URL.class))).thenReturn(_mockLoginConnection).thenReturn(_mockLogoutConnection);
 
         _correctAuthenticationCookie = new HttpCookie(AUTHENTICATION_COOKIE_NAME, "");
-        _incorrectAuthenticationCookie = new HttpCookie("notValid", "");
 
         _mockStore = mock(CookieStore.class);
         _mockCookieManager = mock(CookieManager.class);
@@ -93,6 +88,21 @@ public class S71200HTTPSCommunicatorTests {
     }
 
     @Test
+    public void TestSuccessfulCommand() throws IOException {
+
+        List<HttpCookie> emptyCookieList = new ArrayList<HttpCookie>();
+        List<HttpCookie> authenticatedCookieList = new ArrayList<HttpCookie>();
+        authenticatedCookieList.add(_correctAuthenticationCookie);
+
+        when(_mockStore.getCookies()).thenReturn(authenticatedCookieList).thenReturn(emptyCookieList);
+
+        _testCommunicator.sendPlcCommand(_mockCommandConnection);
+
+        verify(_mockCommandConnection).connect();
+        verify(_mockCommandConnection).getContent();
+    }
+
+    @Test
     public void TestSuccessfulLogout() throws IOException {
 
         List<HttpCookie> emptyCookieList = new ArrayList<HttpCookie>();
@@ -114,6 +124,14 @@ public class S71200HTTPSCommunicatorTests {
         authenticatedCookieList.add(_correctAuthenticationCookie);
 
         when(_mockStore.getCookies()).thenReturn(authenticatedCookieList);
+
+        _testCommunicator.sendPlcCommand(_mockCommandConnection);
+    }
+
+    @Test(expected=IOException.class)
+    public void TestFailedConnection() throws IOException {
+
+        doThrow(new IOException()).when(_mockLoginConnection).getContent();
 
         _testCommunicator.sendPlcCommand(_mockCommandConnection);
     }
