@@ -1,15 +1,23 @@
 package S71200URLCommunicator.Communicators;
 
 import S71200URLCommunicator.Enums.S71200HttpsFields;
-import S71200URLCommunicator.Factories.CookieManagerFactory;
-import S71200URLCommunicator.Interfaces.URLConnectionFactory;
+import S71200URLCommunicator.Factories.CookieStoreFactory;
+import S71200URLCommunicator.Interfaces.HttpClientFactory;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
-import java.net.CookieManager;
-import java.net.HttpCookie;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class S71200URLCommunicator {
 
@@ -19,34 +27,38 @@ public abstract class S71200URLCommunicator {
     private String _plcLogin;
     private String _plcPassword;
 
-    protected URLConnectionFactory connectionFactory;
-    protected CookieManagerFactory cookieManagerFactory;
+    protected HttpClientFactory clientFactory;
+    protected CookieStoreFactory cookieStoreFactory;
 
     public S71200URLCommunicator(String plcIpAddress, String plcLogin, String plcPassword,
-                                   URLConnectionFactory connectionFactory, CookieManagerFactory cookieManagerFactory){
+                                   HttpClientFactory clientFactory, CookieStoreFactory cookieStoreFactory){
         _plcIpAddress = plcIpAddress;
         _plcLogin = plcLogin;
         _plcPassword = plcPassword;
-        this.connectionFactory = connectionFactory;
-        this.cookieManagerFactory = cookieManagerFactory;
+        this.clientFactory = clientFactory;
+        this.cookieStoreFactory = cookieStoreFactory;
     }
 
-    public void sendPlcCommand(HttpsURLConnection httpsCommandConnection) throws IOException {
-        CookieManager sessionCookieManager = cookieManagerFactory.createCookieManager();
-
-        if(!loginToPlc(sessionCookieManager)){
-            throw new IOException("Could authenticate with PLC!");
+    public void sendPlcCommand(HttpPost postMethod) throws IOException {
+        CookieStore sessionStore = cookieStoreFactory.createCookieStore();
+        if(!loginToPlc(sessionStore)){
+            throw new IOException("Could not authenticate with PLC!");
         }
-
-        connectGetContent(httpsCommandConnection);
-
-        if(!logoutOfPlc(sessionCookieManager)){
-            throw new IOException("Could not logout of PLC!");
-        }
+        CloseableHttpClient commandClient = clientFactory.createHttpClient(sessionStore);
+        connectGetContent(commandClient, postMethod);
+        logoutOfPlc(sessionStore);
     }
 
-    private boolean isAuthenticatedToPlc(CookieManager sessionCookieManager){
-        for(HttpCookie cookie : sessionCookieManager.getCookieStore().getCookies()){
+    public String createPlcUrl(String template){
+        return template.replace("%s", _plcIpAddress);
+    }
+
+    protected abstract String getPlcLoginUrl();
+
+    protected abstract String getPlcLogoutUrl();
+
+    protected boolean isAuthenticatedToPlc(CookieStore sessionCookieStore){
+        for(Cookie cookie : sessionCookieStore.getCookies()){
             if(cookie.getName().equals(PLC_AUTHENTICATION_COOKIE_NAME)){
                 return true;
             }
@@ -54,41 +66,47 @@ public abstract class S71200URLCommunicator {
         return false;
     }
 
-    private boolean loginToPlc(CookieManager sessionCookieManager) throws IOException{
-        URLConnection loginCon = connectionFactory.createConnection(getPlcLoginUrl());
-        loginCon.setRequestProperty(S71200HttpsFields.Redirection.toString(), "");
-        loginCon.setRequestProperty(S71200HttpsFields.Login.toString(), _plcLogin);
-        loginCon.setRequestProperty(S71200HttpsFields.Password.toString(), _plcPassword);
-        connectGetContent(loginCon);
+    private boolean loginToPlc(CookieStore sessionCookieManager) throws IOException{
+        CloseableHttpClient loginClient = clientFactory.createHttpClient(sessionCookieManager);
+        HttpPost postMethod = createLoginPostMethod();
+        connectGetContent(loginClient, postMethod);
         return isAuthenticatedToPlc(sessionCookieManager);
     }
 
-    private boolean logoutOfPlc(CookieManager sessionCookieManager) throws IOException{
-        URLConnection logoutCon = connectionFactory.createConnection(getPlcLogoutUrl());
-        logoutCon.setRequestProperty(S71200HttpsFields.Redirection.toString(), "");
-        connectGetContent(logoutCon);
+    private boolean logoutOfPlc(CookieStore sessionCookieManager) throws IOException{
+        CloseableHttpClient logoutClient = clientFactory.createHttpClient(sessionCookieManager);
+        HttpPost postMethod = createLogoutPostMethod();
+        connectGetContent(logoutClient, postMethod);
         return !isAuthenticatedToPlc(sessionCookieManager);
     }
 
-    private void connectGetContent(URLConnection urlConnection){
+    private void connectGetContent(CloseableHttpClient httpClient, HttpPost httpPost){
         try {
-            urlConnection.connect();
-            urlConnection.getContent();
+            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+                HttpEntity entity = response.getEntity();
+                entity.getContent();
+                EntityUtils.consume(entity);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    protected abstract URL getPlcLoginUrl();
+    private HttpPost createLoginPostMethod() throws UnsupportedEncodingException {
+        HttpPost postMethod = new HttpPost(getPlcLoginUrl());
+        List<NameValuePair> postParameters = new ArrayList<>();
+        postParameters.add(new BasicNameValuePair(S71200HttpsFields.Redirection.toString(), ""));
+        postParameters.add(new BasicNameValuePair(S71200HttpsFields.Login.toString(), _plcLogin));
+        postParameters.add(new BasicNameValuePair(S71200HttpsFields.Password.toString(), _plcPassword));
+        postMethod.setEntity(new UrlEncodedFormEntity(postParameters));
+        return postMethod;
+    }
 
-    protected abstract URL getPlcLogoutUrl();
-
-    public URL createPlcUrl(String template){
-        try{
-            return new URL(String.format(template, _plcIpAddress));
-        }catch (java.net.MalformedURLException e){
-            e.printStackTrace();
-        }
-        return null;
+    private HttpPost createLogoutPostMethod() throws UnsupportedEncodingException {
+        HttpPost postMethod = new HttpPost(getPlcLogoutUrl());
+        List<NameValuePair> postParameters = new ArrayList<>();
+        postParameters.add(new BasicNameValuePair(S71200HttpsFields.Redirection.toString(), "."));
+        postMethod.setEntity(new UrlEncodedFormEntity(postParameters));
+        return postMethod;
     }
 }

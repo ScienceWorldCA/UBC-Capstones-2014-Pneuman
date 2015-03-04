@@ -2,27 +2,32 @@ package S71200URLCommunicator.Implementations;
 
 import S71200URLCommunicator.Communicators.S71200HTTPSCommunicator;
 import S71200URLCommunicator.Communicators.S71200URLCommunicator;
-import S71200URLCommunicator.Factories.CookieManagerFactory;
-import S71200URLCommunicator.Factories.HttpsConnectionFactory;
-import S71200URLCommunicator.Interfaces.URLConnectionFactory;
+import S71200URLCommunicator.Factories.CookieStoreFactory;
+import S71200URLCommunicator.Factories.HttpsClientFactory;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PneumanBlackoutCommunicator{
 
-    private static String PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE = "HTTPS://%1$s/awp/Pneuman%20Control%20Panel/BlackoutPage.html";
+    private static String PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE = "HTTP://%s/awp/Pneuman%20Control%20Panel/BlackoutPage.html";
 
     private S71200URLCommunicator _plcCommunicator;
-    private URLConnectionFactory _connectionFactory;
+    private HttpsClientFactory _clientFactory;
 
     public PneumanBlackoutCommunicator(String plcIpAddress, String plcLogin, String plcPassword){
-        _connectionFactory = new HttpsConnectionFactory();
+        _clientFactory = new HttpsClientFactory();
         _plcCommunicator = new S71200HTTPSCommunicator(plcIpAddress, plcLogin, plcPassword,
-                _connectionFactory, new CookieManagerFactory());
+                _clientFactory, new CookieStoreFactory());
     }
 
-    public void startBlacout(){
+    public void startBlackout(){
         sendBlackoutCommand(BlackoutCommand.Enable);
     }
 
@@ -32,20 +37,19 @@ public class PneumanBlackoutCommunicator{
 
     private void sendBlackoutCommand(BlackoutCommand blackoutCommand){
         try {
-            HttpsURLConnection startBlackoutCon = createBlackoutConnection();
-            addBlackoutParameters(blackoutCommand, startBlackoutCon);
-            _plcCommunicator.sendPlcCommand(startBlackoutCon);
+            HttpPost postMethod = createBlackoutPostMethod(blackoutCommand);
+            _plcCommunicator.sendPlcCommand(postMethod);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void addBlackoutParameters(BlackoutCommand blackoutCommand, HttpsURLConnection blackoutConnection){
-        blackoutConnection.addRequestProperty("Blackout", String.valueOf(blackoutCommand.ordinal()));
-    }
-
-    private HttpsURLConnection createBlackoutConnection() throws IOException{
-        return (HttpsURLConnection)_connectionFactory.createConnection(_plcCommunicator.createPlcUrl(PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE));
+    private HttpPost createBlackoutPostMethod(BlackoutCommand blackoutCommand) throws UnsupportedEncodingException {
+        HttpPost postMethod = new HttpPost(_plcCommunicator.createPlcUrl(PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE));
+        List<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+        postParameters.add(new BasicNameValuePair("Blackout", String.valueOf(blackoutCommand.ordinal())));
+        postMethod.setEntity(new UrlEncodedFormEntity(postParameters));
+        return postMethod;
     }
 }
 
