@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="JUnit4">
         <CLASSES>
           <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/" />
@@ -18,7 +18,16 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="org.mockito:mockito-all:1.9.0" level="project" />
-    <orderEntry type="library" name="commons-codec-1.9" level="project" />
+    <orderEntry type="library" exported="" name="org.mockito:mockito-all:1.9.0" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpclient-win:4.4" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpclient:4.4" level="project" />
+    <orderEntry type="library" exported="" name="commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" exported="" name="commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:fluent-hc:4.4" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpclient-cache:4.4" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpcore:4.4" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpmime:4.4" level="project" />
+    <orderEntry type="library" exported="" name="net.java.dev.jna:jna:4.1.0" level="project" />
+    <orderEntry type="library" exported="" name="net.java.dev.jna:jna-platform:4.1.0" level="project" />
   </component>
 </module>
