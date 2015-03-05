@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/PackageOutput</output-path>
     <root id="root">
       <element id="module-output" name="S712000URLCommunicators" />
-      <element id="library" level="project" name="commons-codec-1.91" />
     </root>
   </artifact>
 </component>

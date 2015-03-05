@@ -2,6 +2,7 @@ package S71200URLCommunicator.Implementations;
 
 import S71200URLCommunicator.Communicators.S71200HTTPSCommunicator;
 import S71200URLCommunicator.Communicators.S71200URLCommunicator;
+import S71200URLCommunicator.Enums.BlackoutCommand;
 import S71200URLCommunicator.Factories.CookieStoreFactory;
 import S71200URLCommunicator.Factories.HttpsClientFactory;
 import org.apache.http.NameValuePair;
@@ -53,7 +54,3 @@ public class PneumanBlackoutCommunicator{
     }
 }
 
-enum BlackoutCommand{
-    Disable,
-    Enable
-}
