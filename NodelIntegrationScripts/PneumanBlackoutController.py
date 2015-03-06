@@ -1,9 +1,9 @@
-from S71200HTTPSCommunicator import S71200HTTPSCommunicator
+from S71200HTTPCommunicator import S71200HTTPCommunicator
 
 
-class PneumanBlackoutController(S71200HTTPSCommunicator):
+class PneumanBlackoutController(S71200HTTPCommunicator):
 
-    PLC_BLACKOUT_ADDRESS_TEMPLATE = "HTTPS://" + \
+    PLC_BLACKOUT_ADDRESS_TEMPLATE = "HTTP://" + \
                                     S71200HTTPSCommunicator.IP_ADDRESS_REPLACEMENT_TOKEN + \
                                     "/awp/Pneuman%20Control%20Panel/Pages/BlackoutPage.html"
     PNEUMAN_BLACKOUT_START_FLAG = 1
@@ -30,8 +30,3 @@ class PneumanBlackoutController(S71200HTTPSCommunicator):
 
     def __create_blackout_package(self, blackout_flag):
         return {'Blackout': blackout_flag}
-
-test = PneumanBlackoutController()
-test.set_configuration("192.168.0.1", "admin", "")
-#test.start_blackout()
-test.stop_blackout()
