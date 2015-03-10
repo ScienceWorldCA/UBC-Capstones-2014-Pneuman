@@ -13,7 +13,6 @@ blackout_controller = PneumanBlackoutCommunicator()
 def main():
     if param_ipAddress and param_plcLogin:
         blackout_controller.configure(param_ipAddress, param_plcLogin, param_plcPassword)
-        local_event_Error.emit('Here!')
     else:
         local_event_Error.emit('Configuration not set!')
 
