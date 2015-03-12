@@ -3,6 +3,8 @@ package S71200URLCommunicator.Communicators;
 import S71200URLCommunicator.Factories.CookieStoreFactory;
 import S71200URLCommunicator.Interfaces.HttpClientFactory;
 
+//Extends the URL communicator base class for HTTPS communication.
+//Primarily in charge of supplying Login and Logout URLS.
 public class S71200HTTPSCommunicator extends S71200URLCommunicator{
 
     private static String PLC_LOGIN_ADDRESS_TEMPLATE = "HTTPS://%s/FormLogin";

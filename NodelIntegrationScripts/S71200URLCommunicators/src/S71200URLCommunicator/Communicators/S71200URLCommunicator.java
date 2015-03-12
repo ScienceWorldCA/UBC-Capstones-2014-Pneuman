@@ -19,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+//Base class for http communication with the S71200 PLC.
 public abstract class S71200URLCommunicator {
 
     private static String PLC_AUTHENTICATION_COOKIE_NAME = "siemens_ad_session";
@@ -39,6 +40,7 @@ public abstract class S71200URLCommunicator {
         this.cookieStoreFactory = cookieStoreFactory;
     }
 
+    //Sends the supplied HttpPost method to the S71200 PLC by first logging in, sending command, and logging out.
     public void sendPlcCommand(HttpPost postMethod) throws IOException {
         CookieStore sessionStore = cookieStoreFactory.createCookieStore();
         if(!loginToPlc(sessionStore)){
@@ -49,6 +51,8 @@ public abstract class S71200URLCommunicator {
         logoutOfPlc(sessionStore);
     }
 
+    //Creates PLC URL from template.
+    //NOTE: Can not use String.Format due to compatibility issue running in Nodel.
     public String createPlcUrl(String template){
         return template.replace("%s", _plcIpAddress);
     }
@@ -57,6 +61,7 @@ public abstract class S71200URLCommunicator {
 
     protected abstract String getPlcLogoutUrl();
 
+    //Checks whether the supplied cookie store contains an authentication cooke from the S71200 PLC.
     protected boolean isAuthenticatedToPlc(CookieStore sessionCookieStore){
         for(Cookie cookie : sessionCookieStore.getCookies()){
             if(cookie.getName().equals(PLC_AUTHENTICATION_COOKIE_NAME)){
@@ -66,6 +71,8 @@ public abstract class S71200URLCommunicator {
         return false;
     }
 
+    //Logs into the PLC using supplied username and password.
+    // Supplied cookieManager is used to capture cookies from session.
     private boolean loginToPlc(CookieStore sessionCookieManager) throws IOException{
         CloseableHttpClient loginClient = clientFactory.createHttpClient(sessionCookieManager);
         HttpPost postMethod = createLoginPostMethod();
@@ -73,6 +80,7 @@ public abstract class S71200URLCommunicator {
         return isAuthenticatedToPlc(sessionCookieManager);
     }
 
+    //Logs out of PLC.
     private boolean logoutOfPlc(CookieStore sessionCookieManager) throws IOException{
         CloseableHttpClient logoutClient = clientFactory.createHttpClient(sessionCookieManager);
         HttpPost postMethod = createLogoutPostMethod();
@@ -80,6 +88,7 @@ public abstract class S71200URLCommunicator {
         return !isAuthenticatedToPlc(sessionCookieManager);
     }
 
+    //Connects and sends the supplied HttpPost method using the supplied httpClient.
     private void connectGetContent(CloseableHttpClient httpClient, HttpPost httpPost) throws IOException {
         try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
             HttpEntity entity = response.getEntity();

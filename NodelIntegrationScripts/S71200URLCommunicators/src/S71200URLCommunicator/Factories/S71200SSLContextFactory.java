@@ -11,10 +11,13 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.security.KeyStore;
 
+//Creates SSL Context for S71200 PLC. created context uses a custom trust store,
+// S71200TrustStore.store, found in the Resources folder. The custom trust store
+// must contain the certificate provided by the S71200 PLC.
 public class S71200SSLContextFactory implements SSLContextFactory{
 
     private static String DEFAULT_KEY_STORE_PASS = "changeit";
-    private static String TRUST_STORE_PATH = "S71200URLCommunicator/Resources/S71200TrustStore.store";
+    private static String TRUST_STORE_PATH = "S71200TrustStore.store";
 
     public SSLContext getContext() throws Exception {
 

@@ -12,7 +12,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import java.io.IOException;
 
-
+//Creates a CLoseableHttpClient instance which can be used with SelfSignedCertificates. In order to achieve this
+// a custom hostname verifier must be used which disregards the host name so that the PLC may be hosted on any IP.
 public class SelfSignedHttpsClientFactory implements HttpClientFactory {
 
     private SSLContextFactory _sslContextFactory;

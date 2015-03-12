@@ -1,0 +1,11 @@
+The following are steps needed to set up the Pneuman Blackout Communicator in Nodel:
+
+    1. Create new Nodel node named whatever you would like.
+    2. Compile the S71200UrlCommunicators project. This project was created using the IntelliJ IDEA IDE so could be compiled using that.
+    3. Copy the JAR file from out/artifacts/S71200URLCommunicators_jar.
+    4. Place copied JAR file in top level of the Nodel node folder.
+    5. Copy and paste contents of Resources folder to top level of the Nodel node folder. Replace any existing files of same name.
+    6. (OPTIONAL) Add PLC certificate to trust store S71200TrustStore.store copied from Resources folder. The most recent certificate from 03/12/2015 is already included.
+    7. Navigate to new node in Nodel UI and enter required information.
+
+    Done!

@@ -16,6 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+//Concrete communicator class for handling Pneuman Blackout communication from Nodel.
 public class PneumanBlackoutCommunicator{
 
     private static String PNEUMAN_BLACKOUT_ADDRESS_TEMPLATE = "HTTP://%s/awp/Pneuman%20Control%20Panel/BlackoutPage.html";
