@@ -1,0 +1,100 @@
+#headDiv{
+    background-color: #F9F9F9;
+    width: 100%;
+    height: 170px;
+    padding: 5px;
+    text-decoration-color: #0079C8;
+    font-size: 45px;
+    color: #0079C8;
+}
+
+#toolDiv{
+    background-color: #0079C8;
+    width: 100%;
+    height: 55px;
+}
+
+#controlDiv{
+    background-color: #F9F9F9;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    opacity: 20;
+    margin: 0;
+}
+
+#pneuman_control_state{
+    background-color: #ECF0F1;
+    height: 150px;
+    width: 30%;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    margin-top: 5px;
+    float: right;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 6px;
+}
+
+#PneumanTitle{
+    width: 500px;
+    position: relative;
+    top: -20px;
+}
+
+#greyOutDiv{
+    background-color: black;
+    visibility: hidden;
+    opacity:0.5;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transition: 0.5s;
+
+}
+
+.controlButton{
+    border-radius: 6px;
+    text-align: center;
+    font-family: proxima-nova,arial;
+    font-weight: 600;
+    border: none;
+    background-color: #34495e;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    text-shadow: none;
+    width: 28%;
+    height: 300px;
+    display: inline-block;
+    transition: .25s;
+    margin: 2%;
+    vertical-align: middle;
+    line-height: 300px;
+}
+
+.controlButton:hover{
+    background-color: #0079C8;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: arial,sans-serif;
+    overflow-x: hidden;
+    background-color: #F9F9F9;
+}
+
+.hidden_iframe{
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}

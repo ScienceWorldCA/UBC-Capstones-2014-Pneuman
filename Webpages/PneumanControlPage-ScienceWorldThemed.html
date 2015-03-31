@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./Styles/ScienceWorldStyle.css">
+        <script src=".\Scripts\BasicControlJavascript.js"></script>
+        <script src=".\Scripts\MainScript.js"></script>
+    </head>
+    <body>
+        <div id="headDiv">
+            <img id="PneumanTitle" src="./Images/PneumanTitle.png">
+            <div id="pneuman_control_state">Blackout</div>
+        </div>
+        <div id="toolDiv">
+        </div>
+        <div id="controlDiv">
+            <div id="controlForwards" class="controlButton" onclick="submit_control(0);">Forwards</div>
+            <div id="controlStop" class="controlButton" onclick="submit_control(2);">Stop</div>
+            <div id="controlBackwards" class="controlButton" onclick="submit_control(1);">Backwards</div>
+            <div id="greyOutDiv"></div>
+        </div>
+        <iframe src="PneumanStateRefreshPage.html" id="pneuman_state_refresh" class="hidden_iframe" display="none"></iframe>
+        <iframe src="HiddenControlPage.html" id="hidden_control_frame" class="hidden_iframe" display="none"></iframe>
+    </body>
+</html>

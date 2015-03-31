@@ -13,3 +13,11 @@ function rotate(degrees){
 	document.getElementById("rotary_div").style.transform = "rotate(" + degrees + "deg)";
 	document.getElementById("rotary_div").style.msTransform = "rotate(" + degrees + "deg)";
 }
+
+function disableControls(){
+	window.parent.document.getElementById("greyOutDiv").style.visibility = 'visible';
+}
+
+function enableControls(){
+	window.parent.document.getElementById("greyOutDiv").style.visibility = 'hidden';
+}
