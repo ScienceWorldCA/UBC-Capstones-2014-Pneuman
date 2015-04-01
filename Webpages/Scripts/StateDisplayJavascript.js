@@ -5,7 +5,6 @@ setTimeout(function(){
 function updateState(state){
     var state_name = "Blackout";
     var state_color = "black";
-    disableControls();
 
     switch(state) {
         case 0:

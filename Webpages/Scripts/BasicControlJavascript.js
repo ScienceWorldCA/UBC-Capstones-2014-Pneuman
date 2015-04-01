@@ -15,9 +15,9 @@ function rotate(degrees){
 }
 
 function disableControls(){
-	window.parent.document.getElementById("greyOutDiv").style.visibility = 'visible';
+	window.parent.$("#greyOutDiv").fadeIn(1000);
 }
 
 function enableControls(){
-	window.parent.document.getElementById("greyOutDiv").style.visibility = 'hidden';
+	window.parent.$("#greyOutDiv").fadeOut(1000);
 }
