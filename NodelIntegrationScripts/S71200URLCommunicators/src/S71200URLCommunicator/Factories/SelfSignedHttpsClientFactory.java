@@ -38,12 +38,13 @@ public class SelfSignedHttpsClientFactory implements HttpClientFactory {
             throw new IOException(e);
         }
 
-        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext, acceptAll);
+        //Use TLS for communication
+        String[] supportedProtocols = {"TLSv1", "TLSv1.1", "TLSv1.2"};
+        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext, supportedProtocols, null, acceptAll);
 
-        return HttpClients.custom()
+        return HttpClients.custom().setSSLSocketFactory(socketFactory)
                 .setSSLHostnameVerifier(acceptAll)
                 .setDefaultCookieStore(defaultStore)
-                .setSSLSocketFactory(socketFactory)
                 .build();
     }
 }

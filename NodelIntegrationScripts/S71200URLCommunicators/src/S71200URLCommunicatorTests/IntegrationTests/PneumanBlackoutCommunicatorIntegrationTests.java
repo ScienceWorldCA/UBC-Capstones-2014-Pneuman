@@ -17,10 +17,7 @@ public class PneumanBlackoutCommunicatorIntegrationTests {
         PneumanBlackoutCommunicator testComm = new PneumanBlackoutCommunicator();
         testComm.configure(TEST_IP, TEST_USER, TEST_PASSWORD);
         try{
-            for(int i = 0; i < 1; i++){
-                testComm.startBlackout();
-            }
-
+            testComm.startBlackout();
         }catch(Exception e){
             callSuccessfull = false;
         }
@@ -34,6 +31,23 @@ public class PneumanBlackoutCommunicatorIntegrationTests {
         testComm.configure(TEST_IP, TEST_USER, TEST_PASSWORD);
         try{
             testComm.stopBlackout();
+        }catch(Exception e){
+            callSuccessfull = false;
+        }
+        assertTrue(callSuccessfull);
+    }
+
+    @Test
+    public void StressTestBlackout() throws Exception {
+        boolean callSuccessfull = true;
+        PneumanBlackoutCommunicator testComm = new PneumanBlackoutCommunicator();
+        testComm.configure(TEST_IP, TEST_USER, TEST_PASSWORD);
+        try{
+            for(int i = 0; i < 100; i++){
+                testComm.startBlackout();
+                testComm.stopBlackout();
+            }
+
         }catch(Exception e){
             callSuccessfull = false;
         }

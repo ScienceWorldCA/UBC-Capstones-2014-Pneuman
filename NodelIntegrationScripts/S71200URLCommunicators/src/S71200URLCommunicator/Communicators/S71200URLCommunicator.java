@@ -46,8 +46,9 @@ public abstract class S71200URLCommunicator {
         if(!loginToPlc(sessionStore)){
             throw new IOException("Could not authenticate with PLC! IP: " + _plcIpAddress + " User: " + _plcLogin + "Pass: " + _plcPassword);
         }
-        CloseableHttpClient commandClient = clientFactory.createHttpClient(sessionStore);
-        connectGetContent(commandClient, postMethod);
+        try(CloseableHttpClient commandClient = clientFactory.createHttpClient(sessionStore)) {
+            connectGetContent(commandClient, postMethod);
+        }
         logoutOfPlc(sessionStore);
     }
 
@@ -74,26 +75,40 @@ public abstract class S71200URLCommunicator {
     //Logs into the PLC using supplied username and password.
     // Supplied cookieManager is used to capture cookies from session.
     private boolean loginToPlc(CookieStore sessionCookieManager) throws IOException{
-        CloseableHttpClient loginClient = clientFactory.createHttpClient(sessionCookieManager);
-        HttpPost postMethod = createLoginPostMethod();
-        connectGetContent(loginClient, postMethod);
+        try(CloseableHttpClient loginClient = clientFactory.createHttpClient(sessionCookieManager)) {
+            HttpPost postMethod = createLoginPostMethod();
+            connectGetContent(loginClient, postMethod);
+        }
         return isAuthenticatedToPlc(sessionCookieManager);
     }
 
     //Logs out of PLC.
     private boolean logoutOfPlc(CookieStore sessionCookieManager) throws IOException{
-        CloseableHttpClient logoutClient = clientFactory.createHttpClient(sessionCookieManager);
-        HttpPost postMethod = createLogoutPostMethod();
-        connectGetContent(logoutClient, postMethod);
+        try(CloseableHttpClient logoutClient = clientFactory.createHttpClient(sessionCookieManager)) {
+            HttpPost postMethod = createLogoutPostMethod();
+            connectGetContent(logoutClient, postMethod);
+        }
         return !isAuthenticatedToPlc(sessionCookieManager);
     }
 
     //Connects and sends the supplied HttpPost method using the supplied httpClient.
     private void connectGetContent(CloseableHttpClient httpClient, HttpPost httpPost) throws IOException {
-        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-            HttpEntity entity = response.getEntity();
-            entity.getContent();
-            EntityUtils.consume(entity);
+        boolean attemptConnect = true;
+        int retries = 10;
+        while(attemptConnect) {
+            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+                HttpEntity entity = response.getEntity();
+                entity.getContent();
+                EntityUtils.consume(entity);
+                attemptConnect = false;
+            } catch (org.apache.http.NoHttpResponseException e) {
+                if (retries <= 0) {
+                    throw new IOException(e);
+                } else {
+                    attemptConnect = true;
+                    retries--;
+                }
+            }
         }
     }
 
